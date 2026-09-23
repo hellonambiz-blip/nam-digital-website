@@ -1,0 +1,12 @@
+NAM DIGITAL WEBSITE — SOURCE CODE
+
+This ZIP is a source-code package, not a ready-to-open website. Do not double-click index.html to preview it.
+
+TO PUBLISH WITHOUT BOLT TOKENS:
+1. Unzip the archive.
+2. Sign in to GitHub and create a NEW PRIVATE repository, for example nam-digital-website.
+3. Choose Add file > Upload files. From inside the unzipped folder, upload the files and folders, including src, public, package.json, package-lock.json, index.html, vite.config.ts and netlify.toml. GitHub web upload does not accept an entire ZIP as a working project.
+4. Open Netlify, select Add new project > Import an existing project, select GitHub, and choose your private repository. The included netlify.toml configures build command npm run build and publish folder dist. Deploy.
+5. Review the generated preview URL before sharing it publicly.
+
+No extra Bolt tokens are required. The contact section currently opens an email draft; it does not submit a web form. The portfolio dog-grooming project is a mockup, not a live client site. The site has not been confirmed working as a fully deployed production website.
