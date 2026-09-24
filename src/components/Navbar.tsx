@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Phone } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -71,15 +71,14 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* Desktop: call directly. The Contact link and Hero inquiry CTA remain available. */}
         <a
-          href="#contact"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick('#contact');
-          }}
-          className="hidden rounded-xl bg-teal-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:bg-teal-400 hover:shadow-teal-400/30 lg:inline-block"
+          href="tel:+14125404466"
+          aria-label="Call NAM Digital at (412) 540-4466"
+          className="hidden shrink-0 items-center gap-2 rounded-xl bg-teal-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:bg-teal-400 hover:shadow-teal-400/30 lg:inline-flex"
         >
-          Ask About a Website
+          <Phone className="h-4 w-4" aria-hidden="true" />
+          <span>(412) 540-4466</span>
         </a>
 
         {/* Mobile toggle */}

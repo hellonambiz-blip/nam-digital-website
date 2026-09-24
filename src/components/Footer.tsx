@@ -1,4 +1,5 @@
-import { Globe, Mail } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Globe, Mail, Phone } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -11,15 +12,35 @@ const navLinks = [
 ];
 
 const EMAIL = 'hello.nam.biz@gmail.com';
+const PHONE_DISPLAY = '(412) 540-4466';
+const PHONE_LINK = 'tel:+14125404466';
 
 export default function Footer() {
+  const [hideMobileCall, setHideMobileCall] = useState(false);
+
+  useEffect(() => {
+    // Avoid covering the call/email cards or footer links on small screens.
+    const sections = [document.getElementById('contact'), document.getElementById('site-footer')]
+      .filter((section): section is HTMLElement => section !== null);
+    if (!sections.length || typeof IntersectionObserver === 'undefined') return;
+
+    const visibility = new Map<Element, boolean>();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => visibility.set(entry.target, entry.isIntersecting));
+      setHideMobileCall(Array.from(visibility.values()).some(Boolean));
+    });
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
   const handleNavClick = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-navy-950 py-14">
+    <>
+    <footer id="site-footer" className="bg-navy-950 py-14">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="grid gap-10 md:grid-cols-3">
           {/* Brand */}
@@ -74,6 +95,14 @@ export default function Footer() {
               <Mail className="h-4 w-4 text-teal-500" />
               {EMAIL}
             </a>
+            <a
+              href={PHONE_LINK}
+              aria-label={`Call NAM Digital at ${PHONE_DISPLAY}`}
+              className="mt-4 flex items-center gap-2.5 text-sm text-navy-300 transition-colors hover:text-teal-400"
+            >
+              <Phone className="h-4 w-4 text-teal-500" aria-hidden="true" />
+              {PHONE_DISPLAY}
+            </a>
             <p className="mt-3 text-sm text-navy-500">
               Serving local businesses in person and clients remotely.
             </p>
@@ -90,5 +119,17 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    {!hideMobileCall && (
+      <a
+        href={PHONE_LINK}
+        aria-label={`Call NAM Digital at ${PHONE_DISPLAY}`}
+        className="fixed bottom-5 right-5 z-40 inline-flex min-h-12 items-center gap-2 rounded-full bg-teal-600 px-5 py-3 text-sm font-bold text-white shadow-xl shadow-navy-900/20 transition-colors hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 lg:hidden"
+        style={{ bottom: 'max(1.25rem, env(safe-area-inset-bottom))' }}
+      >
+        <Phone className="h-5 w-5" aria-hidden="true" />
+        Call now
+      </a>
+    )}
+    </>
   );
 }
