@@ -1,0 +1,12 @@
+NAM DIGITAL PHONE UPDATE (no Bolt tokens needed)
+
+This small update uses Google Voice number (412) 540-4466. It keeps the existing tested Gmail inquiry buttons.
+
+1. In GitHub Desktop select nam-digital-website. From the menu choose Repository > Show in Finder.
+2. Open the cloned repository's src/components folder.
+3. Open the extracted update folder's components folder (this download). Copy the FOUR files inside it into the repo's src/components folder, choosing Replace for the three existing files. Do not replace or delete the whole components folder.
+4. Copy the extracted update folder's App.tsx into the repo's src folder, choosing Replace. Do not replace or delete the whole src folder.
+5. In GitHub Desktop, check that 5 files changed/added: src/App.tsx, src/components/Navbar.tsx, src/components/Contact.tsx, src/components/Footer.tsx, src/components/MobileCallButton.tsx. Commit, then Push origin.
+6. Wait for Netlify to publish. Test a call from your mobile device and make sure it reaches your Google Voice account. Also re-test Gmail.
+
+Display: desktop header (Call); Contact section (Call 412-540-4466); footer (number); mobile floating Call now (no duplicate header call button).

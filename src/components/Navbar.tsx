@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Phone } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -71,16 +71,28 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick('#contact');
-          }}
-          className="hidden rounded-xl bg-teal-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:bg-teal-400 hover:shadow-teal-400/30 lg:inline-block"
-        >
-          Ask About a Website
-        </a>
+        {/* Desktop contact actions. On phones, use the floating call button instead. */}
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href="tel:+14125404466"
+            aria-label="Call NAM Digital at 412-540-4466"
+            className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/30 px-3 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+          >
+            <Phone aria-hidden="true" className="h-4 w-4" />
+            <span className="hidden xl:inline">(412) 540-4466</span>
+            <span className="xl:hidden">Call</span>
+          </a>
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('#contact');
+            }}
+            className="rounded-xl bg-teal-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:bg-teal-400 hover:shadow-teal-400/30"
+          >
+            Ask About a Website
+          </a>
+        </div>
 
         {/* Mobile toggle */}
         <button

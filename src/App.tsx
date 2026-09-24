@@ -7,6 +7,7 @@ import HowItWorks from './components/HowItWorks';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import MobileCallButton from './components/MobileCallButton';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <MobileCallButton />
     </div>
   );
 }
