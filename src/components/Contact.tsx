@@ -1,4 +1,4 @@
-import { Mail, MapPin, ArrowRight, MessageSquare, Phone } from 'lucide-react';
+import { Mail, MapPin, ArrowRight, MessageSquare } from 'lucide-react';
 import Reveal from './Reveal';
 
 const EMAIL = 'hello.nam.biz@gmail.com';
@@ -25,18 +25,6 @@ export default function Contact() {
           <p className="mx-auto mt-4 max-w-2xl text-lg text-navy-500">
             Tell us a little about your business and what you're looking for. We'd love to learn more.
           </p>
-        </Reveal>
-
-        <Reveal delay={100} className="mt-8 text-center">
-          <a
-            href="tel:+14125404466"
-            aria-label="Call NAM Digital at 412-540-4466"
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-navy-900 px-6 py-3 font-semibold text-white transition-colors hover:bg-navy-700"
-          >
-            <Phone aria-hidden="true" className="h-5 w-5" />
-            Call (412) 540-4466
-          </a>
-          <p className="mt-2 text-sm text-navy-500">Prefer email? Choose an email option below.</p>
         </Reveal>
 
         <Reveal delay={150} className="mt-12">

@@ -1,4 +1,4 @@
-import { Globe, Mail, Phone } from 'lucide-react';
+import { Globe, Mail } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -73,14 +73,6 @@ export default function Footer() {
             >
               <Mail className="h-4 w-4 text-teal-500" />
               {EMAIL}
-            </a>
-            <a
-              href="tel:+14125404466"
-              aria-label="Call NAM Digital at 412-540-4466"
-              className="mt-3 flex items-center gap-2.5 text-sm text-navy-400 transition-colors hover:text-teal-400"
-            >
-              <Phone aria-hidden="true" className="h-4 w-4 text-teal-500" />
-              (412) 540-4466
             </a>
             <p className="mt-3 text-sm text-navy-500">
               Serving local businesses in person and clients remotely.
